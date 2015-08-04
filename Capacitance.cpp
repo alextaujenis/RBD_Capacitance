@@ -5,12 +5,6 @@ Capacitance::Capacitance(int send_pin, int receive_pin) {
   // save local variables
   _send_pin    = send_pin;
   _receive_pin = receive_pin;
-
-  // set beginning state
-  _updating = false;
-  _waiting  = false;
-  _finished = true;
-
   // set send pin to output
   pinMode(_send_pin, OUTPUT);
   // turn off the send pin
@@ -18,23 +12,35 @@ Capacitance::Capacitance(int send_pin, int receive_pin) {
 }
 
 void Capacitance::update() {
-  if(_updating) {
-    _update();
+  if(_cycling) {
+    _cycle();
   }
 }
 
-void Capacitance::startReading() {
-  _updating = true;
+void Capacitance::startCycling() {
+  _cycling = true;
+  _startReading();
+}
+
+bool Capacitance::doneCycling() {
+  return !_cycling;
+}
+
+void Capacitance::_startReading() {
   _waiting  = false;
   _finished = false;
 }
 
-bool Capacitance::doneReading() {
+bool Capacitance::_doneReading() {
   return _finished;
 }
 
-unsigned long Capacitance::getValue() {
+unsigned long Capacitance::_getValue() {
   return _total_value;
+}
+
+unsigned long Capacitance::getAverage() {
+  return _total_average;
 }
 
 void Capacitance::setSendPin(int pin) {
@@ -43,6 +49,14 @@ void Capacitance::setSendPin(int pin) {
 
 void Capacitance::setReceivePin(int pin) {
   _receive_pin = pin;
+}
+
+void Capacitance::setSampleSize(int size) {
+  // set the sample size
+  _sample_size = size;
+  // restart the cycle variables
+  _sample_sum  = 0;
+  _cycle_count = 0;
 }
 
 void Capacitance::_update() {
@@ -69,9 +83,34 @@ void Capacitance::_update() {
     _total_value = micros() - _start;
     // turn off the send pin
     digitalWrite(_send_pin, LOW);
-    // stop updating
-    _updating = false;
     // finished
     _finished = true;
+  }
+}
+
+void Capacitance::_cycle() {
+  // keep reading
+  _update();
+
+  // when a single reading has been collected
+  if(_doneReading()) {
+    // check if we can take another reading for this cycle
+    if(_cycle_count < _sample_size) {
+      // sum the reading
+      _sample_sum += _getValue();
+      _cycle_count++;
+      // restart the reading process again
+      _startReading();
+    }
+    // no more readings for this cycle
+    else {
+      // save the moving average
+      _total_average = _sample_sum / _sample_size;
+      // reset counter variables
+      _sample_sum  = 0;
+      _cycle_count = 0;
+      // stop cycling
+      _cycling = false;
+    }
   }
 }
