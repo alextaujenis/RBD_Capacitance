@@ -8,6 +8,7 @@ Capacitance cap_sensor(SEND_PIN, RECEIVE_PIN);
 
 void setup() {
   Serial.begin(BAUD);
+  // cap_sensor.setSampleSize(1000); // make it more accurate
   cap_sensor.startCycling();
 }
 

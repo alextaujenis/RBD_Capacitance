@@ -10,9 +10,9 @@ class Capacitance {
     void setSendPin(int pin);     // change the send pin
     void setReceivePin(int pin);  // change the receive pin
     void setSampleSize(int size); // how many readings to take per cycle
-    void startCycling();          // begin a cycle (take sample_size readings)
-    bool doneCycling();           // the cycle is finished (sample_size readings have been taken)
-    unsigned long getAverage();   // updated after a cycle is finished with the moving average of cycle time
+    void startCycling();          // begin a cycle and take many readings
+    bool doneCycling();           // if all readings have been taken for this cycle
+    unsigned long getAverage();   // the sum of readings divided by the sample size
   private:
     int _send_pin;
     int _receive_pin;

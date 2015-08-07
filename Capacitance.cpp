@@ -2,13 +2,24 @@
 #include <Capacitance.h>
 
 Capacitance::Capacitance(int send_pin, int receive_pin) {
-  // save local variables
-  _send_pin    = send_pin;
-  _receive_pin = receive_pin;
-  // set send pin to output
-  pinMode(_send_pin, OUTPUT);
-  // turn off the send pin
-  digitalWrite(_send_pin, LOW);
+  setSendPin(send_pin);
+  setReceivePin(receive_pin);
+}
+
+void Capacitance::setSendPin(int pin) {
+  // only change if needed
+  if (_send_pin != pin) {
+    // save the local value
+    _send_pin = pin;
+    // set send pin to output
+    pinMode(_send_pin, OUTPUT);
+    // turn off the send pin
+    digitalWrite(_send_pin, LOW);
+  }
+}
+
+void Capacitance::setReceivePin(int pin) {
+  _receive_pin = pin;
 }
 
 void Capacitance::update() {
@@ -41,14 +52,6 @@ unsigned long Capacitance::_getValue() {
 
 unsigned long Capacitance::getAverage() {
   return _total_average;
-}
-
-void Capacitance::setSendPin(int pin) {
-  _send_pin = pin;
-}
-
-void Capacitance::setReceivePin(int pin) {
-  _receive_pin = pin;
 }
 
 void Capacitance::setSampleSize(int size) {
