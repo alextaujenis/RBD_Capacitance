@@ -64,13 +64,6 @@ void Capacitance::setSampleSize(int size) {
 
 void Capacitance::_update() {
   if(!_waiting) {
-    // DISCHARGE
-    // set receive pin to output
-    pinMode(_receive_pin, OUTPUT);
-    // set receive pin to low (ground)
-    digitalWrite(_receive_pin, LOW);
-    // set the receive pin back up to input
-    pinMode(_receive_pin, INPUT);
     // CHARGE
     // start waiting
     _waiting = true;
@@ -86,6 +79,13 @@ void Capacitance::_update() {
     _total_value = micros() - _start;
     // turn off the send pin
     digitalWrite(_send_pin, LOW);
+    // DISCHARGE
+    // set receive pin to output
+    pinMode(_receive_pin, OUTPUT);
+    // set receive pin to low (ground)
+    digitalWrite(_receive_pin, LOW);
+    // set the receive pin back up to input
+    pinMode(_receive_pin, INPUT);
     // finished
     _finished = true;
   }
