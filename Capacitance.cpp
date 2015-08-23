@@ -22,24 +22,47 @@ void Capacitance::setReceivePin(int pin) {
   _receive_pin = pin;
 }
 
+void Capacitance::setSampleSize(int size) {
+  // set the sample size
+  _sample_size = size;
+  // restart the cycle variables
+  _sample_sum  = 0;
+  _cycle_count = 0;
+}
+
+void Capacitance::start() {
+  _startCycling();
+}
+
 void Capacitance::update() {
   if(_cycling) {
     _cycle();
   }
 }
 
-void Capacitance::startCycling() {
-  _cycling = true;
+bool Capacitance::isFinished() {
+  return _doneCycling();
+}
+
+unsigned long Capacitance::value() {
+  return _getAverage();
+}
+
+
+// private
+
+void Capacitance::_startCycling() {
+  _cycling = true; // taking many readings
   _startReading();
 }
 
-bool Capacitance::doneCycling() {
+bool Capacitance::_doneCycling() {
   return !_cycling;
 }
 
 void Capacitance::_startReading() {
-  _waiting  = false;
-  _finished = false;
+  _waiting  = false; // in the middle of a reading
+  _finished = false; // finished with a reading
 }
 
 bool Capacitance::_doneReading() {
@@ -47,19 +70,11 @@ bool Capacitance::_doneReading() {
 }
 
 unsigned long Capacitance::_getValue() {
-  return _total_value;
+  return _total_value; // current reading value
 }
 
-unsigned long Capacitance::getAverage() {
-  return _total_average;
-}
-
-void Capacitance::setSampleSize(int size) {
-  // set the sample size
-  _sample_size = size;
-  // restart the cycle variables
-  _sample_sum  = 0;
-  _cycle_count = 0;
+unsigned long Capacitance::_getAverage() {
+  return _total_average; // average of many reading values
 }
 
 void Capacitance::_update() {
@@ -107,7 +122,7 @@ void Capacitance::_cycle() {
     }
     // no more readings for this cycle
     else {
-      // save the moving average
+      // save a moving average
       _total_average = _sample_sum / _sample_size;
       // reset counter variables
       _sample_sum  = 0;

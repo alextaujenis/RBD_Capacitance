@@ -8,14 +8,21 @@ Capacitance cap_sensor(SEND_PIN, RECEIVE_PIN);
 
 void setup() {
   Serial.begin(BAUD);
-  // cap_sensor.setSampleSize(1000); // make it more accurate
-  cap_sensor.startCycling();
+  // take 100 readings and average them as one
+  cap_sensor.setSampleSize(100); // default
+  // start taking readings
+  cap_sensor.start();
 }
 
 void loop() {
+  // keep moving in real-time
   cap_sensor.update();
-  if(cap_sensor.doneCycling()) {
-    Serial.println(cap_sensor.getAverage());
-    cap_sensor.startCycling();
+
+  // if finished taking a reading
+  if(cap_sensor.isFinished()) {
+    // print the reading value
+    Serial.println(cap_sensor.value());
+    // start taking another reading
+    cap_sensor.start();
   }
 }
