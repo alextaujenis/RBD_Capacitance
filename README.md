@@ -7,8 +7,8 @@ This real-time library requires that you manage the flow of your program without
 0. Bridge a 10Meg Ohm resistor across the send (tx 1) and receive (rx 0) pins
 0. Run a length of wire from the receive (rx 0) pin to a strip of aluminum foil
 0. Cover the foil with plastic, paper, wood, clay, or anything non-conductive
-0. Keep the thickness of the non-conductive cover to less than an inch
-0. Open a serial connection at 115200 baud and move your hand around by the sensor
+0. Load up the example sketch and open a serial connection at 115200 baud
+0. Touch or move your hand by the sensor
 
 ###[example.ino](https://github.com/alextaujenis/Capacitance/blob/master/example/example.ino)
 
