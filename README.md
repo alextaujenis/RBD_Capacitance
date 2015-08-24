@@ -61,14 +61,14 @@ You can get **very** accurate readings by increasing the [setSampleSize(5000)](h
 * [getValue()](https://github.com/alextaujenis/Capacitance#getvalue)
 
 ##constructor(send\_pin, receive\_pin)
-Create a new capacitance instance and pass in the send and receive pins.
+Pass in integers for the send and receive pins to create a new instance of this class.
 
 ##setSampleSize(size)
-Change the number of readings used for the moving average in order to control accuracy.
+Pass in an integer for the size to change the number of readings used for the moving average.
 
-* **Increase Accuracy** by making this number larger (example 1000).
-* **Decrease Accuracy** by making this number smaller (example 10).
-* **Default value is 100.**
+* **Increase Accuracy** by making this number larger setSampleSize(1000)
+* **Decrease Accuracy** by making this number smaller setSampleSize(10)
+* **Default Value** is setSampleSize(100)
 
 ##start()
 Begin taking many readings.
@@ -77,10 +77,10 @@ Begin taking many readings.
 Keep processing the readings and move this library along in real-time.
 
 ##isFinished()
-All readings have been taken and a moving average [getValue()](https://github.com/alextaujenis/Capacitance#getvalue) is ready.
+Returns true if all readings have been taken and a moving average [getValue()](https://github.com/alextaujenis/Capacitance#getvalue) is ready.
 
 ##getValue()
-The moving average value of all capacitance readings.
+Returns an unsigned long of the moving average value (microseconds to charge the pin) for the capacitance reading.
 
 #License
 This code is available under the [MIT License](http://opensource.org/licenses/mit-license.php).
