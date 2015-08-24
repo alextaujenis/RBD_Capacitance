@@ -83,4 +83,4 @@ All readings have been taken and a moving average [value()](https://github.com/a
 The moving average value of all capacitance readings.
 
 #License
-This code is avaliable under the [MIT License](http://opensource.org/licenses/mit-license.php).
+This code is available under the [MIT License](http://opensource.org/licenses/mit-license.php).
