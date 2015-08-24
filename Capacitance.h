@@ -25,9 +25,9 @@ class Capacitance {
     bool _reading     = false;     // true if finished with one reading
     unsigned long _sample_sum = 0; // temp value that holds the sum of all readings for this sample
     unsigned long _start;          // the time in microseconds that a reading was started
-    unsigned long _total_value;    // the time in microseconds how long a reading took
+    unsigned long _total_reading;  // the time in microseconds how long a reading took
     unsigned long _total_average;  // the average time in microseconds for the last sample_size number of readings
-    unsigned long _getValue();     // returns the value of the single reading when done
+    unsigned long _getReading();   // returns the value of the single reading when done
     unsigned long _getAverage();   // returns the sum of readings divided by the sample size
     void _startSampling();         // begin a sample and take many readings
     bool _doneSampling();          // returns true if all readings have been taken for this sample

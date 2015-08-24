@@ -62,8 +62,8 @@ bool Capacitance::_doneReading() {
   return !_reading;
 }
 
-unsigned long Capacitance::_getValue() {
-  return _total_value; // current reading
+unsigned long Capacitance::_getReading() {
+  return _total_reading; // current reading
 }
 
 unsigned long Capacitance::_getAverage() {
@@ -79,7 +79,7 @@ void Capacitance::_sample() {
     // check if we can take another reading for this sample
     if(_sample_count < _sample_size) {
       // sum the reading
-      _sample_sum += _getValue();
+      _sample_sum += _getReading();
       _sample_count++;
       // restart the reading process again
       _startReading();
@@ -112,7 +112,7 @@ void Capacitance::_takeReading() {
   // wait until the receive pin is charged
   if(_waiting && bool(digitalRead(_receive_pin))) {
     // save the time in microseconds
-    _total_value = micros() - _start;
+    _total_reading = micros() - _start;
 
     // STOP
     // turn off the send pin
