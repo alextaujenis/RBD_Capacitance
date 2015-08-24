@@ -54,8 +54,6 @@ You can get **very** accurate readings by increasing the [setSampleSize(5000)](h
 ##Public Methods
 
 * [constructor(send\_pin, receive\_pin)](https://github.com/alextaujenis/Capacitance#constructorsend_pin-receive_pin)
-* [setSendPin(pin)](https://github.com/alextaujenis/Capacitance#setsendpinpin)
-* [setReceivePin(pin)](https://github.com/alextaujenis/Capacitance#setreceivepinpin)
 * [setSampleSize(size)](https://github.com/alextaujenis/Capacitance#setsamplesizesize)
 * [start()](https://github.com/alextaujenis/Capacitance#start)
 * [update()](https://github.com/alextaujenis/Capacitance#update)
@@ -64,12 +62,6 @@ You can get **very** accurate readings by increasing the [setSampleSize(5000)](h
 
 ##constructor(send\_pin, receive\_pin)
 Create a new capacitance instance and pass in the send and receive pins.
-
-##setSendPin(pin)
-Convenience method to dynamically re-assign the send pin.
-
-##setReceivePin(pin)
-Convenience method to dynamically re-assign the receive pin.
 
 ##setSampleSize(size)
 Change the number of readings used for the moving average in order to control accuracy.
