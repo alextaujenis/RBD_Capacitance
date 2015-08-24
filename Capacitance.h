@@ -26,15 +26,15 @@ class Capacitance {
     unsigned long _sample_sum = 0; // temp value that holds the sum of all readings for this sample
     unsigned long _start;          // the time in microseconds that a reading was started
     unsigned long _total_reading;  // the time in microseconds how long a reading took
-    unsigned long _total_average;  // the average time in microseconds for the last sample_size number of readings
-    unsigned long _getReading();   // returns the value of the single reading when done
+    unsigned long _total_average;  // the average time in microseconds for the last 'sample size' number of readings
+    unsigned long _getReading();   // returns the value of a single reading when done
     unsigned long _getAverage();   // returns the sum of readings divided by the sample size
-    void _startSampling();         // begin a sample and take many readings
+    void _startSampling();         // kick off the process to take many readings
     bool _doneSampling();          // returns true if all readings have been taken for this sample
+    void _takeSample();            // manage the number of readings collected for this sample and calculate the moving average
     void _startReading();          // kick off the process to take a single reading
     bool _doneReading();           // returns true if finished taking a single reading
-    void _takeReading();           // perform the actual reading (pin charge and discharge)
-    void _takeSample();            // perform many readings
+    void _takeReading();           // performs the actual reading of pin charge and discharge
 };
 
 #endif
