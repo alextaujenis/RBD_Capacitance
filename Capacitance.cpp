@@ -17,11 +17,13 @@ Capacitance::Capacitance(int send_pin, int receive_pin) {
 }
 
 void Capacitance::setSampleSize(int size) {
-  // set the sample size
-  _sample_size = size;
-  // reset the sample variables
-  _sample_sum   = 0;
-  _sample_count = 0;
+  if(size > 0) {
+    // set the sample size
+    _sample_size = size;
+    // reset the sample variables
+    _sample_sum   = 0;
+    _sample_count = 0;
+  }
 }
 
 void Capacitance::start() {
