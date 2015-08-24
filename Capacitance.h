@@ -14,7 +14,7 @@ class Capacitance {
     void start();                 // begin a sample and take many readings: alias of _startSampling()
     void update();                // keep this class updating in real-time
     bool isFinished();            // if all readings have been taken for this sample: alias of _doneSampling()
-    unsigned long value();        // the sum of readings divided by the sample size: alias of _getAverage()
+    unsigned long getValue();     // the sum of readings divided by the sample size: alias of _getAverage()
   private:
     int _send_pin;
     int _receive_pin;

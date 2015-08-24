@@ -30,7 +30,7 @@ This real-time library requires that you manage the flow of your program without
       cap_sensor.update();
 
       if(cap_sensor.isFinished()) {
-        Serial.println(cap_sensor.value());
+        Serial.println(cap_sensor.getValue());
         cap_sensor.start();
       }
     }
@@ -48,7 +48,7 @@ Accuracy is how wildly the sensor readings fluctuate. This library helps adjust 
 * Increase the [setSampleSize(1000)](https://github.com/alextaujenis/Capacitance#setsamplesizesize) value for more accurate readings that do not fluctuate so quickly
 * Lower the [setSampleSize(10)](https://github.com/alextaujenis/Capacitance#setsamplesizesize) value for less accurate readings and to see numbers jump all over the place
 
-You can get **very** accurate readings by increasing the [setSampleSize(5000)](https://github.com/alextaujenis/Capacitance#setsamplesizesize) to whatever you want, and this will not impact the Arduino real-time loop. It may take a bit longer to get the [value()](https://github.com/alextaujenis/Capacitance#value) but the readings and moving average are all calculated in a fast non-blocking manner.
+You can get **very** accurate readings by increasing the [setSampleSize(5000)](https://github.com/alextaujenis/Capacitance#setsamplesizesize) to whatever you want, and this will not impact the Arduino real-time loop. It may take a bit longer to [getValue()](https://github.com/alextaujenis/Capacitance#getvalue) but the readings and moving average are all calculated in a fast non-blocking manner.
 
 #Documentation
 ##Public Methods
@@ -58,7 +58,7 @@ You can get **very** accurate readings by increasing the [setSampleSize(5000)](h
 * [start()](https://github.com/alextaujenis/Capacitance#start)
 * [update()](https://github.com/alextaujenis/Capacitance#update)
 * [isFinished()](https://github.com/alextaujenis/Capacitance#isfinished)
-* [value()](https://github.com/alextaujenis/Capacitance#value)
+* [getValue()](https://github.com/alextaujenis/Capacitance#getvalue)
 
 ##constructor(send\_pin, receive\_pin)
 Create a new capacitance instance and pass in the send and receive pins.
@@ -77,9 +77,9 @@ Begin taking many readings.
 Keep processing the readings and move this library along in real-time.
 
 ##isFinished()
-All readings have been taken and a moving average [value()](https://github.com/alextaujenis/Capacitance#value) is ready.
+All readings have been taken and a moving average [getValue()](https://github.com/alextaujenis/Capacitance#getvalue) is ready.
 
-##value()
+##getValue()
 The moving average value of all capacitance readings.
 
 #License

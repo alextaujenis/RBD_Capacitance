@@ -25,7 +25,7 @@ void loop() {
   // if finished taking a reading
   if(cap_sensor.isFinished()) {
     // print the reading value
-    Serial.println(cap_sensor.value());
+    Serial.println(cap_sensor.getValue());
     // start taking another reading
     cap_sensor.start();
   }

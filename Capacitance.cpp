@@ -38,7 +38,7 @@ bool Capacitance::isFinished() {
   return _doneSampling();
 }
 
-unsigned long Capacitance::value() {
+unsigned long Capacitance::getValue() {
   return _getAverage();
 }
 
