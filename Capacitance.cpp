@@ -101,26 +101,26 @@ void Capacitance::_takeSample() {
 
 void Capacitance::_takeReading() {
   // only fire this once per reading
-  if(!_waiting) {
+  if(!_charging) {
     // CHARGE
     // turn on the send pin
     digitalWrite(_send_pin, HIGH);
     // start counter
     _start = micros();
-    // start waiting for the pin to charge
-    _waiting = true;
+    // start charging the pin
+    _charging = true;
   }
 
   // wait until the receive pin is charged
-  if(_waiting && bool(digitalRead(_receive_pin))) {
+  if(bool(digitalRead(_receive_pin))) {
     // save the time in microseconds
     _total_reading = micros() - _start;
 
     // STOP
     // turn off the send pin
     digitalWrite(_send_pin, LOW);
-    // stop waiting for the pin to charge
-    _waiting = false;
+    // stop charging the pin
+    _charging = false;
     // stop taking a reading
     _reading = false;
 

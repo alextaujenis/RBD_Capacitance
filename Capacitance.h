@@ -20,8 +20,8 @@ class Capacitance {
     int _receive_pin;
     int _sample_size  = 100;       // how many readings should be taken for one sample
     int _sample_count = 0;         // how many readings have been taken for the current sample
-    bool _sampling    = false;     // true if in the middle of a sample
-    bool _waiting     = false;     // true if in the middle of a reading
+    bool _sampling    = false;     // true if taking a sample
+    bool _charging    = false;     // true if charging the pin for a reading
     bool _reading     = false;     // true if finished with one reading
     unsigned long _sample_sum = 0; // temp value that holds the sum of all readings for this sample
     unsigned long _start;          // the time in microseconds that a reading was started
