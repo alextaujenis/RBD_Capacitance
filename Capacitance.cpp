@@ -46,7 +46,6 @@ void Capacitance::_startSampling() {
   _startReading();  // take one reading
 }
 
-
 void Capacitance::_startReading() {
   _reading = true;
 }
