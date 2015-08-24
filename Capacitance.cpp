@@ -30,7 +30,7 @@ void Capacitance::start() {
 
 void Capacitance::update() {
   if(_sampling) {
-    _sample();
+    _takeSample();
   }
 }
 
@@ -70,17 +70,19 @@ unsigned long Capacitance::_getAverage() {
   return _total_average; // average of many readings
 }
 
-void Capacitance::_sample() {
+void Capacitance::_takeSample() {
   // keep reading
   _takeReading();
 
   // when a single reading has been collected
   if(_doneReading()) {
+    // increment the sample count
+    _sample_count++;
+    // sum the reading
+    _sample_sum += _getReading();
+
     // check if we can take another reading for this sample
     if(_sample_count < _sample_size) {
-      // sum the reading
-      _sample_sum += _getReading();
-      _sample_count++;
       // restart the reading process again
       _startReading();
     }

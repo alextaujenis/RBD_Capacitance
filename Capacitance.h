@@ -34,7 +34,7 @@ class Capacitance {
     void _startReading();          // kick off the process to take a single reading
     bool _doneReading();           // returns true if finished taking a single reading
     void _takeReading();           // perform the actual reading (pin charge and discharge)
-    void _sample();                // perform many readings
+    void _takeSample();            // perform many readings
 };
 
 #endif
