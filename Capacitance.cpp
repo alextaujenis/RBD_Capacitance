@@ -1,4 +1,4 @@
-// Arduino Capacitance Library - A real-time library for determining change in capacitance
+// Arduino Capacitance Library - A real-time library for determining relative capacitance
 // Copyright 2015 Alex Taujenis
 // MIT License
 

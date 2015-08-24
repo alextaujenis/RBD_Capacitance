@@ -1,5 +1,5 @@
 #Arduino Capacitance Library
-This library is meant to help **determine change in capacitance** and not for calculating exact capacitance. You can detect human presence and touch from behind several millimeters of material, or detect changes in water levels from the outside of a plastic container.
+You can detect human presence and touch from behind several millimeters of material, or detect changes in water levels from the outside of a plastic container. This library is meant to help **determine relative capacitance** and not for calculating exact capacitance.
 
 This real-time library requires that you manage the flow of your program without delay() or interrupts. Check out this [Arduino Timer Library](https://github.com/alextaujenis/Timer) if you are managing millis() by hand.
 
