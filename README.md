@@ -35,14 +35,14 @@ This real-time library requires that you manage the flow of your program without
       }
     }
 
-#Sensitivity
+##Sensitivity
 Sensitivity is how far away the sensor can detect things.
 
 * Increase sensitivity by **either** adding more resistors in series up to 20Meg or 30Meg or more, **or** increase the surface area (size) of the piece of aluminum used as the sensor
 
 * Decrease sensitivity **either** by lowering the amount of resitance (use only 1Meg or less), **or** decrease the surface area (size) of the piece of aluminum used as the sensor
 
-#Accuracy
+##Accuracy
 Accuracy is how wildly the sensor readings fluctuate. This library helps adjust the accuracy by taking a moving average of many readings.
 
 * Increase the [setSampleSize(1000)](https://github.com/alextaujenis/Capacitance#setsamplesizesize) value for more accurate readings that do not fluctuate so quickly
