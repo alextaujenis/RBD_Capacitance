@@ -1,3 +1,7 @@
+// Arduino Capacitance Library Example - Continuously print a capacitance value
+// Copyright 2015 Alex Taujenis
+// MIT License
+
 #include <Capacitance.h>
 
 #define BAUD        115200

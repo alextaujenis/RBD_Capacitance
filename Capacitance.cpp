@@ -1,3 +1,7 @@
+// Arduino Capacitance Library - A real-time library for determining change in capacitance
+// Copyright 2015 Alex Taujenis
+// MIT License
+
 #include <Arduino.h>
 #include <Capacitance.h>
 
