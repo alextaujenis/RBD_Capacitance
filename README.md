@@ -63,6 +63,8 @@ You can get **very** accurate readings by increasing the [setSampleSize(5000)](h
 ##constructor(send\_pin, receive\_pin)
 Pass in integers for the send and receive pins to create a new instance of this class.
 
+    Capacitance cap_sensor(1,0);
+
 ##setSampleSize(size)
 Pass in an integer for the size to change the number of readings used for the moving average.
 
@@ -70,17 +72,29 @@ Pass in an integer for the size to change the number of readings used for the mo
 * **Decrease Accuracy** by making this number smaller setSampleSize(10)
 * **Default Value** is setSampleSize(100)
 
+Example:
+
+    cap_sensor.setSampleSize(250);
+
 ##start()
 Begin taking many readings.
+
+    cap_sensor.start();
 
 ##update()
 Keep processing the readings and move this library along in real-time.
 
+    cap_sensor.update();
+
 ##isFinished()
 Returns true if all readings have been taken and a moving average [getValue()](https://github.com/alextaujenis/Capacitance#getvalue) is ready.
 
+    cap_sensor.isFinished();
+
 ##getValue()
 Returns an unsigned long of the moving average value (microseconds to charge the pin) for the capacitance reading.
+
+    cap_sensor.getValue();
 
 #License
 This code is available under the [MIT License](http://opensource.org/licenses/mit-license.php).
