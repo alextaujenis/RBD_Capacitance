@@ -45,20 +45,20 @@ Sensitivity is how far away the sensor can detect things.
 ##Accuracy
 Accuracy is how wildly the sensor readings fluctuate. This library helps adjust the accuracy by taking a moving average of many readings.
 
-* Increase the [setSampleSize(1000)](https://github.com/alextaujenis/Capacitance#setsamplesizesize) value for more accurate readings that do not fluctuate so quickly
-* Lower the [setSampleSize(10)](https://github.com/alextaujenis/Capacitance#setsamplesizesize) value for less accurate readings and to see numbers jump all over the place
+* Increase the [setSampleSize(1000)](#setsamplesizesize) value for more accurate readings that do not fluctuate so quickly
+* Lower the [setSampleSize(10)](#setsamplesizesize) value for less accurate readings and to see numbers jump all over the place
 
-You can get **very** accurate readings by increasing the [setSampleSize(5000)](https://github.com/alextaujenis/Capacitance#setsamplesizesize) to whatever you want, and this will not impact the Arduino real-time loop. It may take a bit longer to [getValue()](https://github.com/alextaujenis/Capacitance#getvalue) but the readings and moving average are all calculated in a fast non-blocking manner.
+You can get **very** accurate readings by increasing the [setSampleSize(5000)](#setsamplesizesize) to whatever you want, and this will not impact the Arduino real-time loop. It may take a bit longer to [getValue()](#getvalue) but the readings and moving average are all calculated in a fast non-blocking manner.
 
 #Documentation
 ##Public Methods
 
-* [constructor(send\_pin, receive\_pin)](https://github.com/alextaujenis/Capacitance#constructorsend_pin-receive_pin)
-* [setSampleSize(size)](https://github.com/alextaujenis/Capacitance#setsamplesizesize)
-* [start()](https://github.com/alextaujenis/Capacitance#start)
-* [update()](https://github.com/alextaujenis/Capacitance#update)
-* [isFinished()](https://github.com/alextaujenis/Capacitance#isfinished)
-* [getValue()](https://github.com/alextaujenis/Capacitance#getvalue)
+* [constructor(send\_pin, receive\_pin)](#constructorsend_pin-receive_pin)
+* [setSampleSize(size)](#setsamplesizesize)
+* [start()](#start)
+* [update()](#update)
+* [isFinished()](#isfinished)
+* [getValue()](#getvalue)
 
 ##constructor(send\_pin, receive\_pin)
 Pass in integers for the send and receive pins to create a new instance of this class.
@@ -87,7 +87,7 @@ Keep processing the readings and move this library along in real-time.
     cap_sensor.update();
 
 ##isFinished()
-Returns true if all readings have been taken and a moving average [getValue()](https://github.com/alextaujenis/Capacitance#getvalue) is ready.
+Returns true if all readings have been taken and a moving average [getValue()](#getvalue) is ready.
 
     cap_sensor.isFinished();
 
