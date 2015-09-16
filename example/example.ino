@@ -9,7 +9,7 @@
 #define SEND_PIN    1 // tx
 #define RECEIVE_PIN 0 // rx
 
-RBD_Capacitance cap_sensor(SEND_PIN, RECEIVE_PIN);
+RBD::Capacitance cap_sensor(SEND_PIN, RECEIVE_PIN);
 
 void setup() {
   Serial.begin(BAUD);

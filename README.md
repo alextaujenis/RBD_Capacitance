@@ -10,7 +10,7 @@ This real-time library requires that you manage the flow of your program without
 0. Load up the example sketch and open a serial connection at 115200 baud
 0. Touch or move your hand by the sensor
 
-###[example.ino](https://github.com/alextaujenis/Capacitance/blob/master/example/example.ino)
+###[example.ino](https://github.com/alextaujenis/RBD_Capacitance/blob/master/example/example.ino)
 
     #include <RBD_Capacitance.h>
 
@@ -18,7 +18,7 @@ This real-time library requires that you manage the flow of your program without
     #define SEND_PIN    1 // tx
     #define RECEIVE_PIN 0 // rx
 
-    RBD_Capacitance cap_sensor(SEND_PIN, RECEIVE_PIN);
+    RBD::Capacitance cap_sensor(SEND_PIN, RECEIVE_PIN);
 
     void setup() {
       Serial.begin(BAUD);
@@ -63,7 +63,7 @@ You can get **very** accurate readings by increasing the [setSampleSize(5000)](#
 ##constructor(send\_pin, receive\_pin)
 Pass in integers for the send and receive pins to create a new instance of this class.
 
-    RBD_Capacitance cap_sensor(1,0);
+    RBD::Capacitance cap_sensor(1,0);
 
 ##setSampleSize(size)
 Pass in an integer for the size to change the number of readings used for the moving average.
