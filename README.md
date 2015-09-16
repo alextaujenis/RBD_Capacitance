@@ -12,13 +12,13 @@ This real-time library requires that you manage the flow of your program without
 
 ###[example.ino](https://github.com/alextaujenis/Capacitance/blob/master/example/example.ino)
 
-    #include <Capacitance.h>
+    #include <RBD_Capacitance.h>
 
     #define BAUD        115200
     #define SEND_PIN    1 // tx
     #define RECEIVE_PIN 0 // rx
 
-    Capacitance cap_sensor(SEND_PIN, RECEIVE_PIN);
+    RBD_Capacitance cap_sensor(SEND_PIN, RECEIVE_PIN);
 
     void setup() {
       Serial.begin(BAUD);
@@ -63,7 +63,7 @@ You can get **very** accurate readings by increasing the [setSampleSize(5000)](#
 ##constructor(send\_pin, receive\_pin)
 Pass in integers for the send and receive pins to create a new instance of this class.
 
-    Capacitance cap_sensor(1,0);
+    RBD_Capacitance cap_sensor(1,0);
 
 ##setSampleSize(size)
 Pass in an integer for the size to change the number of readings used for the moving average.

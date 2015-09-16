@@ -1,11 +1,11 @@
-// Arduino Capacitance Library - A real-time library for determining relative capacitance
+// Arduino RBD_Capacitance Library - A real-time library for determining relative capacitance
 // Copyright 2015 Alex Taujenis
 // MIT License
 
 #include <Arduino.h>
-#include <Capacitance.h>
+#include <RBD_Capacitance.h>
 
-Capacitance::Capacitance(int send_pin, int receive_pin) {
+RBD_Capacitance::RBD_Capacitance(int send_pin, int receive_pin) {
   // set send pin
   _send_pin = send_pin;
   // set receive pin
@@ -16,7 +16,7 @@ Capacitance::Capacitance(int send_pin, int receive_pin) {
   digitalWrite(_send_pin, LOW);
 }
 
-void Capacitance::setSampleSize(int size) {
+void RBD_Capacitance::setSampleSize(int size) {
   if(size > 0) {
     // set the sample size
     _sample_size = size;
@@ -26,53 +26,53 @@ void Capacitance::setSampleSize(int size) {
   }
 }
 
-void Capacitance::start() {
+void RBD_Capacitance::start() {
   _startSampling();
 }
 
-void Capacitance::update() {
+void RBD_Capacitance::update() {
   if(_sampling) {
     _takeSample();
   }
 }
 
-bool Capacitance::isFinished() {
+bool RBD_Capacitance::isFinished() {
   return _doneSampling();
 }
 
-unsigned long Capacitance::getValue() {
+unsigned long RBD_Capacitance::getValue() {
   return _getAverage();
 }
 
 
 // private
 
-void Capacitance::_startSampling() {
+void RBD_Capacitance::_startSampling() {
   _sampling = true; // take many readings
   _startReading();  // take one reading
 }
 
-void Capacitance::_startReading() {
+void RBD_Capacitance::_startReading() {
   _reading = true;
 }
 
-bool Capacitance::_doneSampling() {
+bool RBD_Capacitance::_doneSampling() {
   return !_sampling;
 }
 
-bool Capacitance::_doneReading() {
+bool RBD_Capacitance::_doneReading() {
   return !_reading;
 }
 
-unsigned long Capacitance::_getReading() {
+unsigned long RBD_Capacitance::_getReading() {
   return _total_reading; // current reading
 }
 
-unsigned long Capacitance::_getAverage() {
+unsigned long RBD_Capacitance::_getAverage() {
   return _total_average; // average of many readings
 }
 
-void Capacitance::_takeSample() {
+void RBD_Capacitance::_takeSample() {
   // keep reading
   _takeReading();
 
@@ -101,7 +101,7 @@ void Capacitance::_takeSample() {
   }
 }
 
-void Capacitance::_takeReading() {
+void RBD_Capacitance::_takeReading() {
   // only fire this once per reading
   if(!_charging) {
     // CHARGE

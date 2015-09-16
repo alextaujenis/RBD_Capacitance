@@ -1,14 +1,15 @@
-// Arduino Capacitance Library Example - Continuously print a capacitance value
+// Arduino RBD_Capacitance Library Example - Continuously print a capacitance value
+
 // Copyright 2015 Alex Taujenis
 // MIT License
 
-#include <Capacitance.h>
+#include <RBD_Capacitance.h>
 
 #define BAUD        115200
 #define SEND_PIN    1 // tx
 #define RECEIVE_PIN 0 // rx
 
-Capacitance cap_sensor(SEND_PIN, RECEIVE_PIN);
+RBD_Capacitance cap_sensor(SEND_PIN, RECEIVE_PIN);
 
 void setup() {
   Serial.begin(BAUD);

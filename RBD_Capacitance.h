@@ -1,15 +1,15 @@
-// Arduino Capacitance Library - A real-time library for determining relative capacitance
+// Arduino RBD_Capacitance Library - A real-time library for determining relative capacitance
 // Copyright 2015 Alex Taujenis
 // MIT License
 
-#ifndef CAPACITANCE_H
-#define CAPACITANCE_H
+#ifndef RBD_CAPACITANCE_H
+#define RBD_CAPACITANCE_H
 
 #include <Arduino.h>
 
-class Capacitance {
+class RBD_Capacitance {
   public:
-    Capacitance(int send_pin, int receive_pin); // constructor
+    RBD_Capacitance(int send_pin, int receive_pin); // constructor
     void setSampleSize(int size); // how many readings to take per sample
     void start();                 // begin a sample and take many readings: alias of _startSampling()
     void update();                // keep this class updating in real-time
