@@ -16,6 +16,7 @@ namespace RBD {
       void update();                // keep this class updating in real-time
       bool isFinished();            // if all readings have been taken for this sample: alias of _doneSampling()
       unsigned long getValue();     // the sum of readings divided by the sample size: alias of _getAverage()
+      bool onChange();              // returns true once the getValue changes, then resets to false and waits for another change
     private:
       int _send_pin;
       int _receive_pin;

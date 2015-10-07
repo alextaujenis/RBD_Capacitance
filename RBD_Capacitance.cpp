@@ -45,6 +45,16 @@ namespace RBD {
     return _getAverage();
   }
 
+  bool Capacitance::onChange() {
+    if(isFinished()) {
+      start();
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
 
   // private
 
