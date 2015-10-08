@@ -17,7 +17,7 @@ This real-time library requires that you manage the flow of your program without
 0. Load up the example sketch and open a serial connection at 115200 baud
 0. Touch or move your hand by the sensor
 
-###[example.ino](https://github.com/alextaujenis/RBD_Capacitance/blob/master/example/example.ino)
+**Example Sketch**:
 
     #include <RBD_Capacitance.h>
 
@@ -34,8 +34,6 @@ This real-time library requires that you manage the flow of your program without
         Serial.println(cap_sensor.getValue());
       }
     }
-
-
 
 ##Sensitivity
 Sensitivity is how far away the sensor can detect things, or how much resolution you have to recognize change in the sensor readings.

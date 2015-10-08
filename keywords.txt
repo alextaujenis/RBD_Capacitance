@@ -1,0 +1,7 @@
+Capacitance	KEYWORD1
+setSampleSize	KEYWORD2
+start	KEYWORD2
+update	KEYWORD2
+isFinished	KEYWORD2
+getValue	KEYWORD2
+onChange	KEYWORD2

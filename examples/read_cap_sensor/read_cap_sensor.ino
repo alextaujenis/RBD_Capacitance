@@ -1,4 +1,4 @@
-// Arduino RBD_Capacitance Library Example - Continuously print a capacitance value
+// Arduino RBD_Capacitance Library v1.0.0 Example  - Continuously print a capacitance value
 // Copyright 2015 Alex Taujenis
 // MIT License
 

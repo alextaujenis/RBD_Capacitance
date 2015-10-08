@@ -1,4 +1,4 @@
-// Arduino RBD Capacitance Library - A real-time library for determining relative capacitance
+// Arduino RBD Capacitance Library v1.0.0 - A real-time library for determining relative capacitance
 // Copyright 2015 Alex Taujenis
 // MIT License
 
