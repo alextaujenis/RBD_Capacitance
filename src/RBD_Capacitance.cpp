@@ -1,9 +1,10 @@
-// Arduino RBD Capacitance Library v1.0.0 - A real-time library for determining relative capacitance
+// Arduino RBD Capacitance Library v1.0.1 - Measure change in capacitance.
+// https://github.com/alextaujenis/RBD_Capacitance
 // Copyright 2015 Alex Taujenis
 // MIT License
 
 #include <Arduino.h>
-#include <RBD_Capacitance.h>
+#include <RBD_Capacitance.h> // https://github.com/alextaujenis/RBD_Capacitance
 
 namespace RBD {
   Capacitance::Capacitance(int send_pin, int receive_pin) {
@@ -17,10 +18,10 @@ namespace RBD {
     digitalWrite(_send_pin, LOW);
   }
 
-  void Capacitance::setSampleSize(int size) {
-    if(size > 0) {
+  void Capacitance::setSampleSize(int value) {
+    if(value > 0) {
       // set the sample size
-      _sample_size = size;
+      _sample_size = value;
       // reset the sample variables
       _sample_sum   = 0;
       _sample_count = 0;

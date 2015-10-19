@@ -1,4 +1,5 @@
-// Arduino RBD Capacitance Library v1.0.0 - A real-time library for determining relative capacitance
+// Arduino RBD Capacitance Library v1.0.1 - Measure change in capacitance.
+// https://github.com/alextaujenis/RBD_Capacitance
 // Copyright 2015 Alex Taujenis
 // MIT License
 
@@ -11,12 +12,12 @@ namespace RBD {
   class Capacitance {
     public:
       Capacitance(int send_pin, int receive_pin); // constructor
-      void setSampleSize(int size); // how many readings to take per sample
-      void start();                 // begin a sample and take many readings: alias of _startSampling()
-      void update();                // keep this class updating in real-time
-      bool isFinished();            // if all readings have been taken for this sample: alias of _doneSampling()
-      unsigned long getValue();     // the sum of readings divided by the sample size: alias of _getAverage()
-      bool onChange();              // returns true once the getValue changes, then resets to false and waits for another change
+      void setSampleSize(int value); // how many readings to take per sample
+      void start();                  // begin a sample and take many readings: alias of _startSampling()
+      void update();                 // keep this class updating in real-time
+      bool isFinished();             // if all readings have been taken for this sample: alias of _doneSampling()
+      unsigned long getValue();      // the sum of readings divided by the sample size: alias of _getAverage()
+      bool onChange();               // returns true once the getValue changes, then resets to false and waits for another change
     private:
       int _send_pin;
       int _receive_pin;
