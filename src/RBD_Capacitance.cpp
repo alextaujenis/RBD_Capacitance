@@ -1,4 +1,4 @@
-// Arduino RBD Capacitance Library v1.0.2 - Measure change in capacitance.
+// Arduino RBD Capacitance Library v1.0.3 - Measure change in capacitance.
 // https://github.com/alextaujenis/RBD_Capacitance
 // Copyright 2015 Alex Taujenis
 // MIT License
@@ -16,6 +16,8 @@ namespace RBD {
     pinMode(_send_pin, OUTPUT);
     // turn off the send pin
     digitalWrite(_send_pin, LOW);
+    // set the receive pin to input
+    pinMode(_receive_pin, INPUT);
   }
 
   void Capacitance::setSampleSize(int value) {
