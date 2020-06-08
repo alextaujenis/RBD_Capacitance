@@ -1,4 +1,4 @@
-# Arduino Capacitance Library v1.0.4
+# Arduino Capacitance Library v1.0.5
 Measure change in capacitance without delay to detect human presence or water level.
 
 * [Documentation](http://robotsbigdata.com/docs-arduino-capacitance.html)
@@ -9,4 +9,4 @@ Measure change in capacitance without delay to detect human presence or water le
 \**Please include your Arduino make/model and IDE version when reporting an issue with this library.*
 
 # License
-This code is available under the [MIT License](http://opensource.org/licenses/mit-license.php).
+Copyright (c) 2015 Alex Taujenis - MIT License

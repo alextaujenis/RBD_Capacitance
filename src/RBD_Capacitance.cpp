@@ -1,7 +1,6 @@
-// Arduino RBD Capacitance Library v1.0.4 - Measure change in capacitance.
+// Arduino RBD Capacitance Library v1.0.5 - Measure change in capacitance.
 // https://github.com/alextaujenis/RBD_Capacitance
-// Copyright 2015 Alex Taujenis
-// MIT License
+// Copyright (c) 2015 Alex Taujenis - MIT License
 
 #include <Arduino.h>
 #include <RBD_Capacitance.h> // https://github.com/alextaujenis/RBD_Capacitance
